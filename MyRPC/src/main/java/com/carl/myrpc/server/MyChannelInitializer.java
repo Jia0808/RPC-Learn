@@ -7,7 +7,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
     /*多个业务链添加*/
     @Override
-    protected void initChannel(SocketChannel socketChannel) throws Exception {
+    protected void initChannel(SocketChannel socketChannel) {
         socketChannel.pipeline().addLast(new MyChannelHandler());
     }
 }
