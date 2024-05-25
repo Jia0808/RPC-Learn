@@ -1,8 +1,10 @@
 package com.netty;
 
+import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.CharsetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         System.out.println("服务端收到消息: " + msg);
+        ctx.writeAndFlush(Unpooled.copiedBuffer("success!!!", CharsetUtil.UTF_8));
     }
 
     @Override
