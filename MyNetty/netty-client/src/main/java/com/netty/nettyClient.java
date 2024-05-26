@@ -40,6 +40,7 @@ public class nettyClient {
                         pipeline.addLast("decode", new StringDecoder());
                         //转码通道处理
                         pipeline.addLast("encode", new StringEncoder());
+                        pipeline.addLast(new LoggingHandler(LogLevel.INFO));
                         // 处理来自服务端的响应信息
                         socketChannel.pipeline().addLast(new
                                 NettyClientHandler());
